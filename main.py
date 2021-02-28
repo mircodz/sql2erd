@@ -61,7 +61,7 @@ tables = list(map(lambda x: x[2], cur))
 
 for table in tables:
     print(f'[{table}] {{bgcolor: "{args.color}"}}')
-    cur.execute(f"DESCRIBE {table}")
+    cur.execute(f"DESCRIBE `{table}`")
     for (column_name, column_type, null, key_type, default, extra) in cur:
         key_type = '*' if key_type == 'PRI' else '' if not key_type else '+'
         if default is None:
